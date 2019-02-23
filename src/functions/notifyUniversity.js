@@ -34,7 +34,7 @@ module.exports.handler = async event => {
   console.log(
     `notified universtity of order [${orderPlaced.orderId}] for master [${
       orderPlaced.masterId
-      }]`
+    }]`
   );
 
   return "all done";
