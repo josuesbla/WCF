@@ -44,6 +44,19 @@ functions:
         Action: sns:Publish
         Resource: ${self:custom.enrolMasterSnsTopic}
 
+    notifyUniversity:
+      handler: src/functions/notifyUniversity.handler
+      events:
+        - sns: ${self:custom.enrolMasterSnsTopicName}
+      environment:
+        emailAddress: josuesbla@gmail.com
+      iamRoleStatements:
+        - Effect: Allow
+          Action:
+            - ses:SendEmail
+            - ses:SendRawEmail
+          Resource: "*"
+
 
 resources:
   Resources:
